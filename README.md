@@ -1,15 +1,50 @@
-The server is executed with ./httpserver port_num
-Two features that can be used along with the execution includes -N num_threads and -l logfile_name
-These features can apply in any order (suchas  port_num|logfile_name, port_num|num_threads, port_num, logfile_name| etc.)
+## Multithreaded Web Server
 
-Resources used to accomplish this assignment includes Jacob Sorber's implementation of a multithreaded server, Piazza, manual for system calls and certain tutorialspoint. I also aquired advice from Sunny Zhang for certain implementation errors that I was not unable to understand such as why I was cosntantly bombarded with -1 file discripter calls and identifying the differences between strtok and strtok_r.
+### Introduction
+In this project I am building a program that simulates the behavior of a basic http web server with multithreading functionality and logging ability, the server can process requests such as GET, PUT, and HEAD from different connections all at once, and is able to log the requests as it completes them so that the user can check and verify later on. The default thread usage is 4.
 
-Links:
+### Technologies
+* Programming Language C
+* Dynamic Queue Data Structure
+* Pthread library for Multithreading
+* Mutex Locks for Mutal Exclusion
+* Socket Programming
+* Getopt Argument Parsing
 
-getopt example
-https://www.tutorialspoint.com/getopt-function-in-c-to-parse-command-line-arguments
+### Prerequisite
+* Linux [Ubuntu 20.04](https://ubuntu.com/download/desktop) environment
+* Clang compiler for C
+```bash
+sudo apt install build-essential clang git make valgrind lldb clang-format
+```
 
-Patrick Tantalo's CSE 15 Assignment: Integer Queue
+### Instruction/Use
+##### Open a terminal and select the directory where the project exists.
+##### Execute the following:
+```bash
+make
+./httpserver 3000 -l log_file
+```
+#### This execution will produce a text file called log_file to log requests from the client on the port number 3000 using default 4 threads.
+#### The numbers of threads can be changed by including -N as shown:
+```bash
+./httpserver 3000 -N 6 -l log_file.txt
+```
 
-Multithreaded server by Jacob Sorber
-https://www.youtube.com/watch?v=Pg_4Jz8ZIH4&t=758s
+##### To send a request to the server, execute curl requests into another terminal on the same port
+
+##### An example of a GET request is as follows:
+###### An GET curl request will retrieve resources from the testfile01234567 and store into the output
+```bash
+curl http://localhost:3000/testfile01234567 -v -o output
+```
+##### An example of a HEAD request is as follows:
+###### An HEAD curl request will retrieve and return the file size of testfile01234567
+```bash
+curl input http://localhost:3000/testfile01234567 -v
+```
+##### An example of a PUT request is as follows:
+###### An PUT curl request will repalce the resources within the input file with testfile01234567
+```bash
+curl -T input http://localhost:3000/testfile01234567 -v
+```

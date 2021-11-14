@@ -22,14 +22,6 @@ pthread_mutex_t qmutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t logmutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t lock_status = PTHREAD_COND_INITIALIZER;
 
-// I am reusing my integerqueue.c code from course
-// CSE15 taught by Professsor Tantalo which uses the same queue
-// data structure.
-// My data structure is remade with for the purpose of this
-// assignment using the influence of Jacob Sorber's
-// implementation of a queue data structure in his youtube video
-// on the implementation of a multi-threaded server.
-
 // create node obj
 typedef struct NodeObj {
     //since thread takes in pointer, client socket variable is a int pointer rather than a int
