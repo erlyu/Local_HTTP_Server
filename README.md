@@ -1,7 +1,7 @@
 ## Multithreaded Web Server
 
 ### Introduction
-The Purpose of this project is built to simulate HTTP servers with the use of mutithreading as well as logging capabilities. It takes in three seperate types of requests: GET, HEAD, and PUT, and preformes some action based on the request.
+This project is built to simulate HTTP servers with the use of mutithreading as well as logging capabilities. It takes in three seperate types of requests: GET, HEAD, and PUT, and preformes some action based on the request.
 
 ### Technologies
 * Programming Language C
