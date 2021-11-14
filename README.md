@@ -1,7 +1,7 @@
 ## Multithreaded Web Server
 
 ### Introduction
-In this project I am building a program that simulates the behavior of a basic http web server with multithreading functionality and logging ability, the server can process requests such as GET, PUT, and HEAD from different connections all at once, and is able to log the requests as it completes them so that the user can check and verify later on. The default thread usage is 4.
+The Purpose of this project is built to simulate HTTP servers with the use of mutithreading as well as logging capabilities. It takes in three seperate types of requests: GET, HEAD, and PUT, and preformes some action based on the request.
 
 ### Technologies
 * Programming Language C
